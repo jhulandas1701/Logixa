@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Logixa — Dashboard</title>
+<link rel="icon" href="/assets/favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/logo-lockup.png" alt="Logixa" class="brand-logo" />
+      <span class="brand-sub">ingestion console</span>
+    </div>
+
+    <nav class="topnav">
+      <a href="/index.html" class="topnav-link">Ingestion</a>
+      <a href="/dashboard.html" class="topnav-link">Dashboard</a>
+    </nav>
+
+    <div class="health-row" id="healthRow">
+      <div class="health-pill" data-svc="go">
+        <span class="dot" id="dot-go"></span>
+        <span>go-ingestor <em>:8080</em></span>
+      </div>
+      <div class="health-pill" data-svc="pipeline">
+        <span class="dot" id="dot-pipeline"></span>
+        <span>python-pipeline <em>:8000</em></span>
+      </div>
+      <div class="health-pill" data-svc="minio">
+        <span class="dot" id="dot-minio"></span>
+        <span>minio <em>:9000</em></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="dashboard" id="dashboard">
+
+    <div class="kpi-row">
+      <div class="kpi-card kpi-card--neutral">
+        <span class="kpi-value" id="stat-received">0</span>
+        <span class="kpi-label">Files received</span>
+      </div>
+      <div class="kpi-card kpi-card--neutral">
+        <span class="kpi-value" id="stat-completed">0</span>
+        <span class="kpi-label">Events normalized</span>
+      </div>
+      <div class="kpi-card kpi-card--teal">
+        <span class="kpi-value" id="stat-known">0</span>
+        <span class="kpi-label">Known-source hits</span>
+      </div>
+      <div class="kpi-card kpi-card--violet">
+        <span class="kpi-value" id="stat-unknown">0</span>
+        <span class="kpi-label">Sources discovered</span>
+      </div>
+      <div class="kpi-card kpi-card--amber">
+        <span class="kpi-value" id="stat-reuse">0</span>
+        <span class="kpi-label">Profile reuses</span>
+      </div>
+      <div class="kpi-card kpi-card--coral">
+        <span class="kpi-value" id="stat-failed">0</span>
+        <span class="kpi-label">Failed lines</span>
+      </div>
+      <div class="kpi-card kpi-card--neutral">
+        <span class="kpi-value" id="stat-raw">0</span>
+        <span class="kpi-label">Raw files preserved</span>
+      </div>
+      <div class="kpi-card kpi-card--neutral">
+        <span class="kpi-value" id="stat-queue">0</span>
+        <span class="kpi-label">Queue depth</span>
+      </div>
+    </div>
+
+    <div class="dashboard-charts">
+      <div class="panel chart-panel">
+        <h2 class="panel-title">Source detection</h2>
+        <p class="panel-hint">Every source type identified so far, across all events processed.</p>
+        <div class="bar-list" id="sourceBarList">
+          <p class="empty-state">No events processed yet.</p>
+        </div>
+      </div>
+
+      <div class="panel chart-panel">
+        <h2 class="panel-title">Processing mode</h2>
+        <p class="panel-hint">Deterministic parsers vs. adaptive discovery on unrecognized formats.</p>
+        <div class="mode-split">
+          <div class="mode-bar">
+            <div class="mode-seg mode-seg--deterministic" id="modeSegDeterministic" style="width:0%"></div>
+            <div class="mode-seg mode-seg--adaptive" id="modeSegAdaptive" style="width:0%"></div>
+          </div>
+          <div class="mode-legend">
+            <span class="mode-legend-item"><i class="legend-dot legend-dot--deterministic"></i>Deterministic <b id="modeCountDeterministic">0</b></span>
+            <span class="mode-legend-item"><i class="legend-dot legend-dot--adaptive"></i>Adaptive discovery <b id="modeCountAdaptive">0</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-charts">
+      <div class="panel chart-panel">
+        <h2 class="panel-title">Confidence distribution</h2>
+        <p class="panel-hint">How sure the pipeline is about the events it has normalized.</p>
+        <div class="mode-split">
+          <div class="mode-bar mode-bar--tri">
+            <div class="mode-seg mode-seg--high" id="confSegHigh" style="width:0%"></div>
+            <div class="mode-seg mode-seg--medium" id="confSegMedium" style="width:0%"></div>
+            <div class="mode-seg mode-seg--low" id="confSegLow" style="width:0%"></div>
+          </div>
+          <div class="mode-legend">
+            <span class="mode-legend-item"><i class="legend-dot legend-dot--high"></i>High (≥90%) <b id="confCountHigh">0</b></span>
+            <span class="mode-legend-item"><i class="legend-dot legend-dot--medium"></i>Medium (70–89%) <b id="confCountMedium">0</b></span>
+            <span class="mode-legend-item"><i class="legend-dot legend-dot--low"></i>Low (&lt;70%) <b id="confCountLow">0</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel chart-panel">
+        <h2 class="panel-title">Discovery efficiency</h2>
+        <p class="panel-hint">Of every unrecognized log shape the adaptive engine has handled, how much was genuinely new vs. a learned profile paying off.</p>
+        <div class="efficiency-readout">
+          <span class="efficiency-value" id="efficiencyValue">0%</span>
+          <span class="efficiency-label">reuse rate</span>
+        </div>
+        <div class="bar-track efficiency-track">
+          <div class="bar-fill" id="efficiencyFill" style="width:0%; background:var(--violet)"></div>
+        </div>
+        <p class="efficiency-caption" id="efficiencyCaption">No unknown-format events processed yet.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">Top learned profiles</h2>
+      <p class="panel-hint">Adaptive-discovery profiles ranked by how often they've been reused — the clearest signal of which unknown shapes are actually recurring in your traffic.</p>
+      <div class="leaderboard" id="leaderboard">
+        <p class="empty-state">No profiles learned yet.</p>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="/config.js"></script>
+<script src="/common.js"></script>
+<script src="/dashboard.js"></script>
+</body>
+</html>

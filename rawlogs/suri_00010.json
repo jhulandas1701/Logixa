@@ -1,0 +1,1 @@
+{"timestamp": "2026-09-04T20:33:10.123Z", "event_type": "alert", "src_ip": "10.0.10.131", "dest_ip": "8.8.8.8", "src_port": 42010, "dest_port": 53, "proto": "UDP", "alert": {"signature": "Possible DNS tunneling", "severity": 2}}

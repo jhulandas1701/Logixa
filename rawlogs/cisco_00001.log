@@ -1,0 +1,15 @@
+<134>Sep 04 20:31:01 FW01 %ASA-6-302013: Built outbound TCP connection 10001 for outside: 10.10.1.2/443 to 172.16.1.8/52341
+<134>Sep 04 20:31:08 FW01 %ASA-6-302013: Built outbound TCP connection 10008 for outside: 10.10.8.9/443 to 172.16.8.57/52341
+<134>Sep 04 20:31:15 FW01 %ASA-6-302013: Built outbound TCP connection 10015 for outside: 10.10.15.16/443 to 172.16.15.106/52341
+<134>Sep 04 20:31:22 FW01 %ASA-6-302013: Built outbound TCP connection 10022 for outside: 10.10.22.23/443 to 172.16.22.155/52341
+<134>Sep 04 20:31:29 FW01 %ASA-6-302013: Built outbound TCP connection 10029 for outside: 10.10.29.30/443 to 172.16.29.204/52341
+<134>Sep 04 20:31:36 FW01 %ASA-6-302013: Built outbound TCP connection 10036 for outside: 10.10.36.37/443 to 172.16.36.3/52341
+<134>Sep 04 20:31:43 FW01 %ASA-6-302013: Built outbound TCP connection 10043 for outside: 10.10.43.44/443 to 172.16.43.52/52341
+<134>Sep 04 20:31:50 FW01 %ASA-6-302013: Built outbound TCP connection 10050 for outside: 10.10.50.51/443 to 172.16.50.101/52341
+<134>Sep 04 20:31:57 FW01 %ASA-6-302013: Built outbound TCP connection 10057 for outside: 10.10.57.58/443 to 172.16.57.150/52341
+<134>Sep 04 20:31:04 FW01 %ASA-6-302013: Built outbound TCP connection 10064 for outside: 10.10.64.65/443 to 172.16.64.199/52341
+<134>Sep 04 20:31:11 FW01 %ASA-6-302013: Built outbound TCP connection 10071 for outside: 10.10.71.72/443 to 172.16.71.248/52341
+<134>Sep 04 20:31:18 FW01 %ASA-6-302013: Built outbound TCP connection 10078 for outside: 10.10.78.79/443 to 172.16.78.47/52341
+<134>Sep 04 20:31:25 FW01 %ASA-6-302013: Built outbound TCP connection 10085 for outside: 10.10.85.86/443 to 172.16.85.96/52341
+<134>Sep 04 20:31:32 FW01 %ASA-6-302013: Built outbound TCP connection 10092 for outside: 10.10.92.93/443 to 172.16.92.145/52341
+<134>Sep 04 20:31:39 FW01 %ASA-6-302013: Built outbound TCP connection 10099 for outside: 10.10.99.100/443 to 172.16.99.194/52341

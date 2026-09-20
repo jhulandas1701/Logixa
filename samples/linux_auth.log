@@ -1,0 +1,30 @@
+Sep  4 20:56:54 web-01 sudo: deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/apt update
+Sep  4 20:15:11 web-01 sshd[21718]: Failed password for invalid user ops from 203.0.113.246 port 54791 ssh2
+Sep  4 20:45:13 web-01 sshd[24006]: Accepted publickey for www-data from 10.0.0.33 port 48643 ssh2
+Sep  4 20:10:39 web-01 sudo: www-data : TTY=pts/0 ; PWD=/home/www-data ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Sep  4 20:57:57 web-01 sshd[24350]: Accepted publickey for admin from 10.0.0.17 port 46724 ssh2
+Sep  4 20:24:57 web-01 sshd[26267]: Accepted publickey for root from 10.0.0.6 port 55696 ssh2
+Sep  4 20:53:28 web-01 sudo: www-data : TTY=pts/1 ; PWD=/home/www-data ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Sep  4 20:48:19 web-01 sshd[29302]: Failed password for invalid user ops from 203.0.113.160 port 55807 ssh2
+Sep  4 20:13:41 web-01 sshd[23566]: Failed password for admin from 203.0.113.178 port 49530 ssh2
+Sep  4 20:55:43 web-01 sshd[21941]: Failed password for root from 203.0.113.120 port 57992 ssh2
+Sep  4 20:22:29 web-01 sudo: pam_unix(sudo:session): session opened for user root by root(uid=1004)
+Sep  4 20:39:14 web-01 sudo: root : TTY=pts/3 ; PWD=/home/root ; USER=root ; COMMAND=/usr/bin/apt update
+Sep  4 20:23:14 web-01 sshd[28586]: Accepted publickey for deploy from 10.0.0.18 port 51781 ssh2
+Sep  4 20:18:48 web-01 sudo: www-data : TTY=pts/0 ; PWD=/home/www-data ; USER=root ; COMMAND=/usr/bin/id
+Sep  4 20:24:41 web-01 sudo: pam_unix(sudo:session): session opened for user root by root(uid=1000)
+Sep  4 20:20:10 web-01 sudo: pam_unix(sudo:session): session opened for user root by root(uid=1004)
+Sep  4 20:56:19 web-01 sshd[21980]: Failed password for root from 203.0.113.81 port 40057 ssh2
+Sep  4 20:30:58 web-01 sshd[23207]: Failed password for root from 203.0.113.31 port 49497 ssh2
+Sep  4 20:26:33 web-01 sshd[29653]: Failed password for invalid user root from 203.0.113.223 port 54026 ssh2
+Sep  4 20:58:27 web-01 sudo: pam_unix(sudo:session): session opened for user root by ops(uid=1000)
+Sep  4 20:52:28 web-01 sshd[24353]: Accepted publickey for deploy from 10.0.0.29 port 56743 ssh2
+Sep  4 20:30:22 web-01 sudo: root : TTY=pts/0 ; PWD=/home/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Sep  4 20:45:45 web-01 sshd[26731]: Failed password for admin from 203.0.113.13 port 44540 ssh2
+Sep  4 20:51:28 web-01 sshd[22797]: Accepted publickey for www-data from 10.0.0.32 port 53594 ssh2
+Sep  4 20:31:28 web-01 sshd[23910]: Failed password for invalid user ops from 203.0.113.104 port 58262 ssh2
+Sep  4 20:52:35 web-01 sshd[23405]: Failed password for deploy from 203.0.113.20 port 56288 ssh2
+Sep  4 20:45:24 web-01 sshd[27372]: Accepted publickey for ops from 10.0.0.29 port 44574 ssh2
+Sep  4 20:45:22 web-01 sshd[29107]: Failed password for invalid user deploy from 203.0.113.88 port 47835 ssh2
+Sep  4 20:33:26 web-01 sudo: deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Sep  4 20:34:36 web-01 sudo: deploy : TTY=pts/2 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/id

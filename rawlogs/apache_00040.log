@@ -1,0 +1,1 @@
+192.168.40.41 - user0 [04/Sep/2026:20:35:40 +0530] "GET /index0.html HTTP/1.1" 404 1240 "https://example.com/ref0" "Mozilla/5.0 (compatible; LogixaBench/1.0)"
