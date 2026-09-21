@@ -7,11 +7,22 @@ from typing import Any
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.processor import process
 from app.intelligence.profile_store import load_all as load_profiles
 
 app = FastAPI(title="Logixa Python Pipeline", version="2.0.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://logixa-three.vercel.app",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 DATA = Path(os.getenv("PIPELINE_DATA_DIR", "/data"))
 LINEAGE = DATA / "lineage"

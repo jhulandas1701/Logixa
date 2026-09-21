@@ -31,7 +31,7 @@ window.LogixaCommon = (() => {
   function pollHealth() {
     checkHealth("go", `${CFG.GO_BASE}/health`);
     checkHealth("pipeline", `${CFG.PIPELINE_BASE}/health`);
-    checkHealth("minio", CFG.MINIO_HEALTH);
+    // checkHealth("minio", CFG.MINIO_HEALTH);
   }
 
   function startHealthPolling() {
