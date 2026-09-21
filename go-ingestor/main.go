@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 type IngestionState struct {
@@ -51,10 +52,24 @@ func main() {
 
 	r := gin.New()
 
-	r.Use(
-		gin.Logger(),
-		gin.Recovery(),
-	)
+	r.Use(gin.Logger(), gin.Recovery())
+
+	r.Use(cors.New(cors.Config{
+		AllowOrigins: []string{
+			"https://logixa-three.vercel.app",
+		},
+		AllowMethods: []string{
+			"GET",
+			"POST",
+			"OPTIONS",
+		},
+		AllowHeaders: []string{
+			"Origin",
+			"Content-Type",
+			"Accept",
+			"Authorization",
+		},
+	}))
 
 	// --------------------------------------------------
 	// HEALTH CHECK
